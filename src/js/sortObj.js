@@ -12,9 +12,8 @@ export default function sortObj(obj, keys) {
   const arraySort = Object.entries(obj).sort((prev, next) => {
     if (prev < next) {
       return -1;
-    } else {
-      return 1;
     }
+    return 1;
   });
 
   for (const [key, value] of arraySort) {
