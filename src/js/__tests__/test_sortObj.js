@@ -6,10 +6,10 @@ const obj = {
 
 const array = [
   { key: 'name', value: 'мечник' },
-  { key: 'level', value: 2 },
-  { key: 'attack', value: 80 },
   { key: 'defence', value: 40 },
+  { key: 'attack', value: 80 },
   { key: 'health', value: 10 },
+  { key: 'level', value: 2 },
 ];
 
 test.each([
@@ -17,7 +17,7 @@ test.each([
 ])(
   ('Should return sort obj'),
   (something, amount, expected) => {
-    const result = sortObj(amount, ['name', 'level']);
+    const result = sortObj(amount, ['name', 'defence']);
     expect(result).toEqual(expected);
   },
 );

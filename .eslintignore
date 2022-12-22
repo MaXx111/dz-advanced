@@ -1,3 +1,4 @@
 dist
 coverage
 docs
+eslint-disable no-plusplus

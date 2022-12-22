@@ -1,22 +1,24 @@
 export default function sortObj(obj, keys) {
   const array = [];
-  for (const i of keys) {
-    for (const [key] of Object.entries(obj)) {
-      if (key === i) {
-        array.push({ key: i, value: obj[i] });
-        delete obj[i];
-      }
+  const arrayWithKey = [];
+  const arrayWithoutKeys = [];
+  for (const i in obj) {
+    if (keys.includes(i)) {
+      arrayWithKey.push([i, obj[i]]);
+    } else {
+      arrayWithoutKeys.push([i, obj[i]]);
     }
   }
 
-  const arraySort = Object.entries(obj).sort((prev, next) => {
-    if (prev < next) {
-      return -1;
+  for (const key of keys) {
+    for (const [i, value] of arrayWithKey) {
+      if (key === i) {
+        array.push({ key: i, value });
+      }
     }
-    return 1;
-  });
-
-  for (const [key, value] of arraySort) {
+  }
+  arrayWithoutKeys.sort();
+  for (const [key, value] of arrayWithoutKeys) {
     array.push({ key, value });
   }
   return array;

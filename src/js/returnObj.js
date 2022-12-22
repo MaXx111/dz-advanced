@@ -1,7 +1,7 @@
 export default function returnObj(obj) {
   const array = [];
   const { special } = obj;
-  for (let i = 0; i < special.length; i++) {
+  for (let i = 0; i < special.length; i++) { // eslint-disable-line
     const {
       id, name, icon, description = 'Описание недоступно',
     } = special[i];
